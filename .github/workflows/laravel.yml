@@ -1,0 +1,155 @@
+name: CI
+
+on: push
+
+jobs:
+  pint:
+    name: "run pint"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "setup PHP 8.2"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: composer
+          coverage: none
+
+      - name: "get composer cache directory"
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: "cache dependencies"
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: "install dependencies"
+        run: composer install --prefer-dist
+
+      - name: "run pint"
+        run: php ./vendor/bin/pint --test
+  phpstan:
+    name: "run phpstan"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "setup PHP 8.2"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: composer
+          coverage: none
+
+      - name: "get composer cache directory"
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: "cache dependencies"
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: "install dependencies"
+        run: composer install --prefer-dist
+
+      - name: "run PHPStan"
+        run: php ./vendor/bin/phpstan analyse
+  tests:
+    name: "run tests"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "setup PHP 8.2"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: composer
+          coverage: none
+
+      - name: "get composer cache directory"
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: "cache dependencies"
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: "install dependencies"
+        run: composer install --prefer-dist
+
+      - name: "copy .env.example to .env"
+        run: cp .env.example .env
+
+      - name: "set the application key"
+        run: php artisan key:generate
+
+      - name: "setup node v18.12.1"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.1
+          cache: 'npm'
+
+      - name: "install node dependencies"
+        run: npm ci
+
+      - name: "build assets"
+        run: npm run build
+
+      - name: "run tests"
+        run: php artisan test
+  caches:
+    name: "ensure caches can be created"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "setup PHP 8.2"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: composer
+          coverage: none
+
+      - name: "get composer cache directory"
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: "cache dependencies"
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: "install dependencies"
+        run: composer install --prefer-dist
+
+      - name: "run artisan config:cache"
+        run: php artisan config:cache
+
+      - name: "run artisan event:cache"
+        run: php artisan event:cache
+
+      - name: "run artisan route:cache"
+        run: php artisan route:cache
+
+      - name: "run artisan view:cache"
+        run: php artisan view:cache
+
+      - name: "run artisan optimize"
+        run: php artisan optimize
