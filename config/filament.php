@@ -13,6 +13,9 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
+$localLoginEmails = env('FILAMENT_LOCAL_LOGIN_EMAILS', '');
+assert(is_string($localLoginEmails));
+
 return [
 
     /*
@@ -87,8 +90,10 @@ return [
     'auth' => [
         'guard' => env('FILAMENT_AUTH_GUARD', 'admin'),
         'pages' => [
-            'login' => \Filament\Http\Livewire\Auth\Login::class,
+            'login' => \App\Http\Livewire\Filament\Auth\Login::class,
         ],
+
+        'local_login_emails' => array_filter(array_map('trim', explode(',', $localLoginEmails))),
     ],
 
     /*
