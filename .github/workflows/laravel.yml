@@ -33,6 +33,24 @@ jobs:
 
       - name: "run pint"
         run: php ./vendor/bin/pint --test
+  blade_formatter:
+    name: "run blade formatter"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "setup node v18.12.1"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.1
+          cache: 'npm'
+
+      - name: "install node dependencies"
+        run: npm ci
+
+      - name: "run blade formatter"
+        run: "./node_modules/.bin/blade-formatter \"./resources/**/*.blade.php\" -c -d"
   phpstan:
     name: "run phpstan"
     runs-on: ubuntu-latest

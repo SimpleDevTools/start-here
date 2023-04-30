@@ -1,0 +1,25 @@
+{
+    "recommendations": [
+        "calebporzio.better-phpunit",
+        "streetsidesoftware.code-spell-checker",
+        "mikestead.dotenv",
+        "sleistner.vscode-fileutils",
+        "eamodio.gitlens",
+        "wix.vscode-import-cost",
+        "ryannaddy.laravel-artisan",
+        "shufo.vscode-blade-formatter",
+        "onecentlin.laravel-blade",
+        "austenc.laravel-blade-spacer",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "codingyu.laravel-goto-view",
+        "open-southeners.laravel-pint",
+        "xyz.local-history",
+        "neilbrayfield.php-docblocker",
+        "bmewburn.vscode-intelephense-client",
+        "mehedidracula.php-namespace-resolver",
+        "swordev.phpstan",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "redhat.vscode-yaml"
+    ]
+}

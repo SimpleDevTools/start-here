@@ -1,0 +1,28 @@
+{
+    "editor.formatOnSave": true,
+    "editor.renderWhitespace": "boundary",
+    "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
+    "local-history.daysLimit": 0,
+    "php-docblocker.qualifyClassNames": true,
+    "php-docblocker.useShortNames": true,
+    "php.suggest.basic": false,
+    "laravel-pint.enable": true,
+    "cSpell.enableFiletypes": ["blade"],
+    "cSpell.userWords": ["livewire"],
+    "tailwindCSS.includeLanguages": {
+        "blade": "html"
+    },
+    "[blade]": {
+        "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[php]": {
+        "editor.defaultFormatter": "open-southeners.laravel-pint"
+    }
+}

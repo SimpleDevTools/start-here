@@ -212,4 +212,6 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'cache_response' => env('CACHE_RESPONSE', false),
+
 ];

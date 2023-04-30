@@ -125,6 +125,11 @@ return [
             'access_token' => env('ROLLBAR_TOKEN'),
             'level' => 'debug',
         ],
+
+        'notifications' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/notifications.log'),
+        ],
     ],
 
 ];

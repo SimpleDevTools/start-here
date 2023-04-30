@@ -1,16 +1,27 @@
 <div class="space-y-8">
-    @env('local')
+    @if (app()->environment('local'))
         @foreach ($this->localLoginEmails() as $loginEmail)
-            <x-filament::button wire:click="localLoginAs('{{ $loginEmail }}')" class="w-full" outlined>
+            <x-filament::button
+                class="w-full"
+                wire:click="localLoginAs('{{ $loginEmail }}')"
+                outlined
+            >
                 {{ __('filament::login.buttons.submit.label') }} as {{ $loginEmail }}
             </x-filament::button>
         @endforeach
-    @endenv
+    @endif
 
-    <form wire:submit.prevent="authenticate" class="space-y-8">
+    <form
+        class="space-y-8"
+        wire:submit.prevent="authenticate"
+    >
         {{ $this->form }}
 
-        <x-filament::button type="submit" form="authenticate" class="w-full">
+        <x-filament::button
+            class="w-full"
+            form="authenticate"
+            type="submit"
+        >
             {{ __('filament::login.buttons.submit.label') }}
         </x-filament::button>
     </form>
