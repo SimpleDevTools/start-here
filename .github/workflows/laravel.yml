@@ -40,10 +40,10 @@ jobs:
       - name: "checkout repository"
         uses: actions/checkout@v3
 
-      - name: "setup node v18.12.1"
+      - name: "setup node v18.15.0"
         uses: actions/setup-node@v3
         with:
-          node-version: 18.12.1
+          node-version: 18.15.0
           cache: 'npm'
 
       - name: "install node dependencies"
@@ -115,10 +115,10 @@ jobs:
       - name: "set the application key"
         run: php artisan key:generate
 
-      - name: "setup node v18.12.1"
+      - name: "setup node v18.15.0"
         uses: actions/setup-node@v3
         with:
-          node-version: 18.12.1
+          node-version: 18.15.0
           cache: 'npm'
 
       - name: "install node dependencies"
