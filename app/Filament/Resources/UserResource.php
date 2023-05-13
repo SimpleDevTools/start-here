@@ -6,7 +6,6 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\Pages\CreateUser;
 use App\Models\User;
 use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\Group;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -26,21 +25,6 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Group::make()
-                    ->relationship('company')
-                    ->schema([
-                        TextInput::make('name')
-                            ->label('Company Name')
-                            ->required()
-                            ->maxLength(255),
-                        TextInput::make('domain')
-                            ->label('Company Domain')
-                            ->url()
-                            ->required()
-                            ->maxLength(255),
-                    ])
-                    ->columnSpanFull()
-                    ->columns(2),
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
