@@ -128,6 +128,7 @@ class ContactPageTest extends TestCase
             ['phone', '', null, false],
             ['phone', '', '5555555555', false],
             ['phone', '123456789', 'digits:10'],
+            ['phone', '12345678911', 'digits:10'],
             ['phone', 'randomtext', 'numeric'],
 
             ['message', 'Message body', null, false],

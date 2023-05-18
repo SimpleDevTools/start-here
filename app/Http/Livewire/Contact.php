@@ -51,6 +51,7 @@ class Contact extends Component implements HasForms
             TextInput::make('phone')
                 ->mask(fn (TextInput\Mask $mask) => $mask->pattern('(000) 000-0000'))
                 ->length(10)
+                ->maxLength(14)
                 ->integer(),
             Textarea::make('message')
                 ->required()
