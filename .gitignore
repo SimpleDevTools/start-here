@@ -4,6 +4,7 @@
 /public/hot
 /public/storage
 /public/sitemap.xml
+/public/page-cache
 /storage/*.key
 /vendor
 .env

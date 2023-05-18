@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', Home::class)->name('home');
-
-Route::get('/contact', Contact::class)->name('contact');
+Route::middleware('page-cache')->group(function () {
+    Route::get('/', Home::class)->name('home');
+    Route::get('/contact', Contact::class)->name('contact');
+});
