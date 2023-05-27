@@ -9,7 +9,7 @@
     "php.suggest.basic": false,
     "laravel-pint.enable": true,
     "cSpell.enableFiletypes": ["blade"],
-    "cSpell.userWords": ["livewire"],
+    "cSpell.words": ["livewire"],
     "tailwindCSS.includeLanguages": {
         "blade": "html"
     },
