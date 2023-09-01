@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Support\Type;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\SitemapGenerator;
 
@@ -26,8 +27,7 @@ class GenerateSitemap extends Command
      */
     public function handle(): void
     {
-        $appUrl = config('app.url');
-        assert(is_string($appUrl));
+        $appUrl = Type::string(config('app.url'));
 
         SitemapGenerator::create($appUrl)
             ->writeToFile(public_path('sitemap.xml'));

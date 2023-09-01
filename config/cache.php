@@ -1,9 +1,7 @@
 <?php
 
+use App\Support\Type;
 use Illuminate\Support\Str;
-
-$appName = env('APP_NAME', 'laravel');
-assert(is_string($appName));
 
 return [
 
@@ -55,6 +53,7 @@ return [
         'file' => [
             'driver' => 'file',
             'path' => storage_path('framework/cache/data'),
+            'lock_path' => storage_path('framework/cache/data'),
         ],
 
         'memcached' => [
@@ -108,6 +107,6 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', Str::slug($appName, '_').'_cache_'),
+    'prefix' => env('CACHE_PREFIX', Str::slug(Type::string(env('APP_NAME', 'laravel')), '_').'_cache_'),
 
 ];

@@ -1,6 +1,5 @@
 includes:
     - ./vendor/nunomaduro/larastan/extension.neon
-    - ./vendor/spatie/invade/phpstan-extension.neon
 
 parameters:
 
@@ -14,3 +13,6 @@ parameters:
 
     # Level 9 is the highest level
     level: max
+
+    ignoreErrors:
+        - '#Call to an undefined method Illuminate\\Testing\\TestResponse::assertSeeLivewire\(\)#'

@@ -10,4 +10,14 @@
         x-text="quote.content"
     ></h3>
     <p x-text="'- '+quote.author"></p>
+
+    <div>
+        <button
+            class="rounded border bg-white px-4 py-2"
+            wire:click="$set('count', {{ $count + 1 }})"
+        >
+            {{ $count }}
+            Increment
+        </button>
+    </div>
 </div>

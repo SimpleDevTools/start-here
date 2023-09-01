@@ -3,7 +3,6 @@
 /public/build
 /public/hot
 /public/storage
-/public/sitemap.xml
 /public/page-cache
 /storage/*.key
 /vendor
@@ -18,4 +17,5 @@ npm-debug.log
 yarn-error.log
 /.fleet
 /.idea
+/.vscode
 /.history

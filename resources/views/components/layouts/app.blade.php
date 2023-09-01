@@ -26,14 +26,12 @@
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    @livewireScripts
+    @livewireScriptConfig
     @stack('beforeHeadClose')
 </head>
 
 <body class="antialiased">
     {{ $slot }}
-
-    @livewire('notifications')
 </body>
 
 </html>

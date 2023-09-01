@@ -1,9 +1,7 @@
 <?php
 
+use App\Support\Type;
 use Illuminate\Support\Str;
-
-$appName = env('APP_NAME', 'laravel');
-assert(is_string($appName));
 
 return [
 
@@ -131,7 +129,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug($appName, '_').'_session'
+        Str::slug(Type::string(env('APP_NAME', 'laravel')), '_').'_session'
     ),
 
     /*

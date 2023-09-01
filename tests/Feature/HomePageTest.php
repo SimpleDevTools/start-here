@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\Home;
+use App\Livewire\Home;
 use Tests\TestCase;
 
 class HomePageTest extends TestCase
