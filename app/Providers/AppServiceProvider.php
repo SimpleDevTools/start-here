@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        /** @phpstan-ignore-next-line */
+        /** @var \Illuminate\Foundation\Vite $this */
         Vite::macro('image', fn (string $asset) => $this->asset("resources/images/{$asset}"));
     }
 }
