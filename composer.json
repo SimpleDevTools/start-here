@@ -13,7 +13,6 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "rollbar/rollbar-laravel": "^8.0",
-        "silber/page-cache": "^1.0",
         "spatie/laravel-ray": "^1.32",
         "spatie/laravel-sitemap": "^6.3"
     },
