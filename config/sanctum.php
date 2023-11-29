@@ -1,7 +1,7 @@
 <?php
 
-use App\Support\Type;
 use Laravel\Sanctum\Sanctum;
+use Smpita\TypeAs\TypeAs;
 
 return [
 
@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'stateful' => explode(',', Type::string(env('SANCTUM_STATEFUL_DOMAINS', sprintf(
+    'stateful' => explode(',', TypeAs::string(env('SANCTUM_STATEFUL_DOMAINS', sprintf(
         '%s%s',
         'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1',
         Sanctum::currentApplicationUrlWithPort()

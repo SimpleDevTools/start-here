@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a7538c4b02eeb7703c5d231f42cb314",
+    "content-hash": "3c88e73c485f326fdf02823c53646b4f",
     "packages": [
         {
             "name": "brick/math",
@@ -4006,6 +4006,64 @@
                 "source": "https://github.com/rollbar/rollbar-php-laravel/tree/v8.0.0"
             },
             "time": "2023-03-20T23:58:59+00:00"
+        },
+        {
+            "name": "smpita/typeas",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smpita/typeas.git",
+                "reference": "93f7868239eec9ef5636322b394306a3766d41a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smpita/typeas/zipball/93f7868239eec9ef5636322b394306a3766d41a4",
+                "reference": "93f7868239eec9ef5636322b394306a3766d41a4",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^8.4",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Helpers.php"
+                ],
+                "psr-4": {
+                    "Smpita\\TypeAs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sean Pearce",
+                    "email": "smpita@users.noreply.github.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy type control for static analysis",
+            "homepage": "https://github.com/smpita/typeas",
+            "keywords": [
+                "laravel",
+                "smpita",
+                "typeas"
+            ],
+            "support": {
+                "issues": "https://github.com/smpita/typeas/issues",
+                "source": "https://github.com/smpita/typeas/tree/v3.0.0"
+            },
+            "time": "2023-10-27T22:12:22+00:00"
         },
         {
             "name": "spatie/backtrace",

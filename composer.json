@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "rollbar/rollbar-laravel": "^8.0",
+        "smpita/typeas": "*",
         "spatie/laravel-ray": "^1.32",
         "spatie/laravel-sitemap": "^6.3"
     },

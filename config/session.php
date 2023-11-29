@@ -1,7 +1,7 @@
 <?php
 
-use App\Support\Type;
 use Illuminate\Support\Str;
+use Smpita\TypeAs\TypeAs;
 
 return [
 
@@ -129,7 +129,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(Type::string(env('APP_NAME', 'laravel')), '_').'_session'
+        Str::slug(TypeAs::string(env('APP_NAME', 'laravel')), '_').'_session'
     ),
 
     /*

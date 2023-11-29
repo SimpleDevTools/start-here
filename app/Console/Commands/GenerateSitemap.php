@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Support\Type;
 use Illuminate\Console\Command;
+use Smpita\TypeAs\TypeAs;
 use Spatie\Sitemap\SitemapGenerator;
 
 class GenerateSitemap extends Command
@@ -27,7 +27,7 @@ class GenerateSitemap extends Command
      */
     public function handle(): void
     {
-        $appUrl = Type::string(config('app.url'));
+        $appUrl = TypeAs::string(config('app.url'));
 
         SitemapGenerator::create($appUrl)
             ->writeToFile(public_path('sitemap.xml'));
