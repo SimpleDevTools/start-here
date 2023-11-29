@@ -3,7 +3,6 @@
 /public/build
 /public/hot
 /public/storage
-/public/page-cache
 /storage/*.key
 /vendor
 .env

@@ -14,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('page-cache')->group(function () {
-    Route::get('/', Home::class)->name('home');
-});
+Route::get('/', Home::class)->name('home');
