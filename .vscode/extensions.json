@@ -5,7 +5,6 @@
         "mikestead.dotenv",
         "sleistner.vscode-fileutils",
         "eamodio.gitlens",
-        "wix.vscode-import-cost",
         "ryannaddy.laravel-artisan",
         "shufo.vscode-blade-formatter",
         "onecentlin.laravel-blade",

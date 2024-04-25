@@ -2,8 +2,8 @@
     "name": "app",
     "private": true,
     "engines": {
-        "npm": "9.8.0",
-        "node": "20.5.1"
+        "npm": "10.5.0",
+        "node": "20.12.2"
     },
     "type": "module",
     "scripts": {
@@ -11,16 +11,17 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@defstudio/vite-livewire-plugin": "^1.3.2",
-        "@tailwindcss/forms": "^0.5.6",
-        "@tailwindcss/typography": "^0.5.9",
-        "alpinejs": "^3.13.0",
-        "autoprefixer": "^10.4.15",
-        "axios": "^1.1.2",
-        "blade-formatter": "^1.37.1",
-        "laravel-vite-plugin": "^0.8.0",
-        "postcss": "^8.4.29",
-        "tailwindcss": "^3.3.3",
-        "vite": "^4.0.0"
+        "@defstudio/vite-livewire-plugin": "^2.0.4",
+        "autoprefixer": "^10.4.19",
+        "axios": "^1.6.4",
+        "blade-formatter": "^1.41.1",
+        "laravel-vite-plugin": "^1.0",
+        "postcss": "^8.4.38",
+        "tailwindcss": "^3.4.3",
+        "vite": "^5.0"
+    },
+    "dependencies": {
+        "@tailwindcss/forms": "^0.5.7",
+        "@tailwindcss/typography": "^0.5.12"
     }
 }
