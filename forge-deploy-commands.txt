@@ -7,9 +7,9 @@ $FORGE_COMPOSER install --no-dev --no-interaction --prefer-dist --optimize-autol
     echo 'Restarting FPM...'; sudo -S service $FORGE_PHP_FPM reload ) 9>/tmp/fpmlock
 
 . ~/.nvm/nvm.sh
-nvm use
+nvm i
 
-npm install
+npm ci
 npm run build
 
 if [ -f artisan ]; then
@@ -19,4 +19,6 @@ if [ -f artisan ]; then
 
     $FORGE_PHP artisan optimize
     $FORGE_PHP artisan event:cache
+    $FORGE_PHP artisan icons:cache
+    $FORGE_PHP artisan filament:cache-components
 fi
