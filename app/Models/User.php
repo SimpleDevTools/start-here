@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
