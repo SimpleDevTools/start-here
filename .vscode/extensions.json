@@ -12,13 +12,15 @@
         "amiralizadeh9480.laravel-extra-intellisense",
         "codingyu.laravel-goto-view",
         "open-southeners.laravel-pint",
-        "xyz.local-history",
         "neilbrayfield.php-docblocker",
         "bmewburn.vscode-intelephense-client",
         "mehedidracula.php-namespace-resolver",
         "swordev.phpstan",
         "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "pcbowers.alpine-intellisense",
+        "ezforo.copy-relative-path-and-line-numbers",
+        "liamhammett.temp-php-test"
     ]
 }
