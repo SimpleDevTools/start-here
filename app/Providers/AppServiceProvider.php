@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use Smpita\TypeAs\TypeAs;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,7 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        /** @var \Illuminate\Foundation\Vite $this */
-        Vite::macro('image', fn (string $asset) => $this->asset("resources/images/{$asset}"));
+        Model::shouldBeStrict(! $this->app->isProduction());
+
+        Vite::macro('image', fn (string $asset) => TypeAs::class(\Illuminate\Foundation\Vite::class, $this)->asset("resources/images/{$asset}"));
     }
 }
