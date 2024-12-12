@@ -19,5 +19,5 @@ if [ -f artisan ]; then
 
     $FORGE_PHP artisan optimize
     $FORGE_PHP artisan event:cache
-    $FORGE_PHP artisan icons:cache
+    $FORGE_PHP artisan filament:optimize
 fi
