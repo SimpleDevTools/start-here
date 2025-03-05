@@ -1,0 +1,16 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - vendor/nesbot/carbon/extension.neon
+    - vendor/pestphp/pest/extension.neon
+
+parameters:
+
+    paths:
+        - app/
+        - bootstrap/
+        - config/
+        - database/
+        - routes/
+
+    # Level 10 is the highest level
+    level: max

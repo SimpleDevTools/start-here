@@ -1,0 +1,16 @@
+{
+    "indentSize": 4,
+    "wrapAttributes": "force-expand-multiline",
+    "wrapLineLength": 120,
+    "wrapAttributesMinAttrs": 2,
+    "useTabs": false,
+    "sortTailwindcssClasses": true,
+    "sortHtmlAttributes": "code-guide",
+    "noMultipleEmptyLines": false,
+    "noPhpSyntaxCheck": false,
+    "componentPrefix": [
+        "x-",
+        "livewire:",
+        "flux:"
+    ]
+}
