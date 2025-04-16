@@ -55,6 +55,9 @@ jobs:
       - name: "set the application key"
         run: php artisan key:generate
 
+      - name: "run artisan migrate"
+        run: php artisan migrate
+
       - name: "build assets"
         run: npm run build
 
