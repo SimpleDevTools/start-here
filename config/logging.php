@@ -54,7 +54,7 @@ return [
 
         'stack' => [
             'driver' => 'stack',
-            'channels' => explode(',', strval(env('LOG_STACK', 'single'))),
+            'channels' => array_filter(array_map('trim', explode(',', strval(env('LOG_STACK', 'single'))))),
             'ignore_exceptions' => false,
         ],
 
@@ -127,6 +127,12 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        'rollbar' => [
+            'driver' => 'monolog',
+            'handler' => \Rollbar\Laravel\MonologHandler::class,
+            'access_token' => env('ROLLBAR_TOKEN'),
+            'level' => 'debug',
+        ],
     ],
 
 ];

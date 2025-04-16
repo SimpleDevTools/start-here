@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff3643161c766f0faa18f0a6b3b9fe83",
+    "content-hash": "e02d2ad106a1b231c62bd9b04815da98",
     "packages": [
         {
             "name": "brick/math",
@@ -3496,6 +3496,141 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "rollbar/rollbar",
+            "version": "v4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rollbar/rollbar-php.git",
+                "reference": "146216bbfde503632c6969a7c334c8a63c98f50e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/146216bbfde503632c6969a7c334c8a63c98f50e",
+                "reference": "146216bbfde503632c6969a7c334c8a63c98f50e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "monolog/monolog": "^2 || ^3",
+                "php": ">=8.1.0 <9.0",
+                "psr/log": "^1 || ^2 || ^3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5.1",
+                "phpmd/phpmd": "^2.13",
+                "phpunit/phpunit": "^9.6 || ^10.1",
+                "squizlabs/php_codesniffer": "^3.7",
+                "vimeo/psalm": "^5.9"
+            },
+            "suggest": {
+                "fluent/logger": "Needed to use the 'fluent' handler for fluentd support"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rollbar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rollbar, Inc.",
+                    "email": "support@rollbar.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Monitors errors and exceptions and reports them to Rollbar",
+            "homepage": "https://github.com/rollbar/rollbar-php",
+            "keywords": [
+                "debugging",
+                "errors",
+                "exceptions",
+                "logging",
+                "monitoring"
+            ],
+            "support": {
+                "email": "support@rollbar.com",
+                "issues": "https://github.com/rollbar/rollbar-php/issues",
+                "source": "https://github.com/rollbar/rollbar-php/tree/v4.1.1"
+            },
+            "time": "2025-03-21T19:07:30+00:00"
+        },
+        {
+            "name": "rollbar/rollbar-laravel",
+            "version": "v8.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rollbar/rollbar-php-laravel.git",
+                "reference": "fbe96ea28601294aa7dc41cd16db62cddddeb0c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php-laravel/zipball/fbe96ea28601294aa7dc41cd16db62cddddeb0c2",
+                "reference": "fbe96ea28601294aa7dc41cd16db62cddddeb0c2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "php": "^8.1",
+                "rollbar/rollbar": "v4.1.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1",
+                "orchestra/testbench": "^8.0",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^8|^9.1",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Rollbar": "Rollbar\\Laravel\\Facades\\Rollbar"
+                    },
+                    "providers": [
+                        "Rollbar\\Laravel\\RollbarServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rollbar\\Laravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                },
+                {
+                    "name": "Artur Moczulski",
+                    "email": "artur.moczulski@gmail.com",
+                    "role": "Contractor @ Rollbar, Inc."
+                }
+            ],
+            "description": "Rollbar error monitoring integration for Laravel projects",
+            "homepage": "https://github.com/rollbar/rollbar-php-laravel",
+            "keywords": [
+                "error",
+                "laravel",
+                "logging",
+                "monitoring",
+                "rollbar"
+            ],
+            "support": {
+                "issues": "https://github.com/rollbar/rollbar-php-laravel/issues",
+                "source": "https://github.com/rollbar/rollbar-php-laravel/tree/v8.1.2"
+            },
+            "time": "2025-03-21T19:26:39+00:00"
         },
         {
             "name": "smpita/typeas",
