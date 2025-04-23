@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e02d2ad106a1b231c62bd9b04815da98",
+    "content-hash": "bd22a6fed12f10a1cf9c8e6ac8a8f34a",
     "packages": [
         {
             "name": "brick/math",
@@ -3631,6 +3631,66 @@
                 "source": "https://github.com/rollbar/rollbar-php-laravel/tree/v8.1.2"
             },
             "time": "2025-03-21T19:26:39+00:00"
+        },
+        {
+            "name": "smpita/configas",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smpita/configas.git",
+                "reference": "f3b583efeafda49c926e64a43e20f5ee339e0582"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smpita/configas/zipball/f3b583efeafda49c926e64a43e20f5ee339e0582",
+                "reference": "f3b583efeafda49c926e64a43e20f5ee339e0582",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": ">=10.0",
+                "php": ">=8.1",
+                "smpita/typeas": ">=3.1"
+            },
+            "require-dev": {
+                "laravel/pint": ">=1.0",
+                "orchestra/testbench": ">=8.4",
+                "pestphp/pest": ">=2.20"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Smpita\\ConfigAs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sean Pearce",
+                    "email": "smpita@users.noreply.github.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Typed Config Resolver for Laravel",
+            "homepage": "https://github.com/smpita/makeas",
+            "keywords": [
+                "configas",
+                "laravel",
+                "smpita"
+            ],
+            "support": {
+                "issues": "https://github.com/smpita/configas/issues",
+                "source": "https://github.com/smpita/configas/tree/v1.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/smpita",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-05T19:25:16+00:00"
         },
         {
             "name": "smpita/typeas",
