@@ -30,6 +30,7 @@ class Profile extends Component
     {
         $user = user();
 
+        /** @var array<string, mixed> */
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
 
@@ -43,7 +44,7 @@ class Profile extends Component
             ],
         ]);
 
-        $user->fill(TypeAs::array($validated));
+        $user->fill($validated);
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
