@@ -6,15 +6,10 @@
 
 <?php if ($expandable && $heading): ?>
 
-<ui-disclosure
-    {{ $attributes->class('group/disclosure') }}
-    @if ($expanded === true) open @endif
-    data-flux-navlist-group
->
-    <button
-        type="button"
-        class="group/disclosure-button mb-[2px] flex h-10 w-full items-center rounded-lg text-zinc-500 hover:bg-zinc-800/5 hover:text-zinc-800 lg:h-8 dark:text-white/80 dark:hover:bg-white/[7%] dark:hover:text-white"
-    >
+<ui-disclosure {{ $attributes->class('group/disclosure') }} @if ($expanded === true) open @endif
+    data-flux-navlist-group>
+    <button type="button"
+        class="group/disclosure-button mb-[2px] flex h-10 w-full items-center rounded-lg text-zinc-500 hover:bg-zinc-800/5 hover:text-zinc-800 lg:h-8 dark:text-white/80 dark:hover:bg-white/[7%] dark:hover:text-white">
         <div class="ps-3 pe-4">
             <flux:icon.chevron-down class="hidden size-3! group-data-open/disclosure-button:block" />
             <flux:icon.chevron-right class="block size-3! group-data-open/disclosure-button:hidden" />

@@ -46,7 +46,8 @@ new class extends Component {
             <flux:input wire:model="name" :label="__('Name')" type="text" required autofocus autocomplete="name" />
 
             <div>
-                <flux:input wire:model="email" :label="__('Email')" type="email" required disabled autocomplete="email" />
+                <flux:input wire:model="email" :label="__('Email')" type="email" required disabled
+                    autocomplete="email" />
             </div>
 
             <div class="flex items-center gap-4">

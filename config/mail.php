@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+use Smpita\TypeAs\TypeAs;
+
 return [
 
     /*
@@ -46,7 +50,7 @@ return [
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(TypeAs::string(env('APP_URL', 'http://localhost')), PHP_URL_HOST)),
         ],
 
         'ses' => [

@@ -1,0 +1,15 @@
+parameters:
+    cognitive_complexity:
+        class: 50
+        function: 8
+
+
+    paths:
+        - app/
+        - bootstrap/
+        - config/
+        - database/
+        - routes/
+
+    # Level 10 is the highest level
+    level: max

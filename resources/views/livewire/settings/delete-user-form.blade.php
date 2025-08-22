@@ -10,9 +10,7 @@ new class extends Component {
      */
     public function deleteUser(AuthKitAccountDeletionRequest $request): void
     {
-        $request->delete(
-            using: fn (User $user) => $user->delete()
-        );
+        $request->delete(using: fn(User $user) => $user->delete());
 
         $this->redirect('/', navigate: true);
     }
@@ -25,7 +23,8 @@ new class extends Component {
     </div>
 
     <flux:modal.trigger name="confirm-user-deletion">
-        <flux:button variant="danger" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
+        <flux:button variant="danger" x-data=""
+            x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
             {{ __('Delete account') }}
         </flux:button>
     </flux:modal.trigger>
