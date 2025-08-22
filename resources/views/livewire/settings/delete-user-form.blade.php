@@ -1,21 +1,3 @@
-<?php
-
-use App\Models\User;
-use Laravel\WorkOS\Http\Requests\AuthKitAccountDeletionRequest;
-use Livewire\Volt\Component;
-
-new class extends Component {
-    /**
-     * Delete the currently authenticated user.
-     */
-    public function deleteUser(AuthKitAccountDeletionRequest $request): void
-    {
-        $request->delete(using: fn(User $user) => $user->delete());
-
-        $this->redirect('/', navigate: true);
-    }
-}; ?>
-
 <section class="mt-10 space-y-6">
     <div class="relative mb-5">
         <flux:heading>{{ __('Delete account') }}</flux:heading>
