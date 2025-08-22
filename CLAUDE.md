@@ -14,6 +14,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - livewire/flux (FLUXUI_FREE) - v2
 - livewire/livewire (LIVEWIRE) - v3
 - livewire/volt (VOLT) - v1
+- larastan/larastan (LARASTAN) - v3
 - laravel/pint (PINT) - v1
 - pestphp/pest (PEST) - v4
 - tailwindcss (TAILWINDCSS) - v4
@@ -82,6 +83,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 
 ## PHP
 
+- Always use strict typing at the head of a `.php` file: `declare(strict_types=1);`.
 - Always use curly braces for control structures, even if it has one line.
 
 ### Constructors
@@ -214,7 +216,7 @@ avatar, badge, brand, breadcrumbs, button, callout, checkbox, dropdown, field, h
 
 ## Livewire Core
 - Use the `search-docs` tool to find exact version specific documentation for how to write Livewire & Livewire tests.
-- Use the `php artisan make:livewire [Posts\\CreatePost]` artisan command to create new components
+- Use the `php artisan make:livewire [Posts\CreatePost]` artisan command to create new components
 - State should live on the server, with the UI reflecting it.
 - All Livewire requests hit the Laravel backend, they're like regular HTTP requests. Always validate form data, and run authorization checks in Livewire actions.
 
