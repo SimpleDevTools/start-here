@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\Settings;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Laravel\WorkOS\Http\Requests\AuthKitAccountDeletionRequest;
 use Livewire\Component;
 
@@ -20,7 +21,7 @@ class DeleteUserForm extends Component
         $this->redirect('/', navigate: true);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.settings.delete-user-form');
     }

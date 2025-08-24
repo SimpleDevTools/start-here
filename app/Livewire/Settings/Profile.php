@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\Settings;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Profile extends Component
@@ -19,8 +19,8 @@ class Profile extends Component
      */
     public function mount(): void
     {
-        $this->name = Auth::user()->name;
-        $this->email = Auth::user()->email;
+        $this->name = user()->name;
+        $this->email = user()->email;
     }
 
     /**
@@ -28,8 +28,9 @@ class Profile extends Component
      */
     public function updateProfileInformation(): void
     {
-        $user = Auth::user();
+        $user = user();
 
+        /** @var array<string, mixed> */
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
         ]);
@@ -41,7 +42,7 @@ class Profile extends Component
         $this->dispatch('profile-updated', name: $user->name);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.settings.profile');
     }
