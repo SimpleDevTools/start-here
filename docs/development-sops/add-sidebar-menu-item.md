@@ -146,17 +146,23 @@ use App\Livewire\Reports\Index as ReportsIndex;
 use App\Models\User;
 use Livewire\Livewire;
 
+use function Pest\Laravel\actingAs;
+use function Pest\Laravel\get;
+
 it('redirects guests to login', function () {
-    $this->get(route('reports.index'))->assertRedirect();
+    get(route('reports.index'))->assertRedirect();
 });
 
 it('renders for authenticated users', function () {
     $user = User::factory()->create();
 
-    $this->actingAs($user)
+    actingAs($user)
         ->get(route('reports.index'))
         ->assertOk()
         ->assertSeeLivewire(ReportsIndex::class);
+
+    visit(route('reports.index'))
+        ->assertNoSmoke();
 });
 
 it('livewire component returns 200', function () {
