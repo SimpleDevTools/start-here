@@ -23,6 +23,17 @@ jobs:
         id: composer-cache
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
+      - name: "create auth.json file"
+        run: |
+          echo '{
+            "http-basic": {
+              "composer.fluxui.dev": {
+                "username": "${{ secrets.FLUX_COMPOSER_PASSWORD }}",
+                "password": "${{ secrets.FLUX_COMPOSER_USERNAME }}"
+              }
+            }
+          }' > auth.json
+
       - name: "cache dependencies"
         uses: actions/cache@v3
         with:
