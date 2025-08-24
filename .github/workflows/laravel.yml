@@ -28,8 +28,8 @@ jobs:
           echo '{
             "http-basic": {
               "composer.fluxui.dev": {
-                "username": "${{ secrets.FLUX_COMPOSER_PASSWORD }}",
-                "password": "${{ secrets.FLUX_COMPOSER_USERNAME }}"
+                "username": "${{ secrets.FLUX_COMPOSER_USERNAME }}",
+                "password": "${{ secrets.FLUX_COMPOSER_PASSWORD }}"
               }
             }
           }' > auth.json
