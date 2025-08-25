@@ -185,7 +185,6 @@ it('renders for authenticated users', function () {
         ->assertOk()
         ->assertSeeLivewire(ReportsIndex::class);
 
-    // CRITICAL: Always include visit test with assertNoSmoke()
     visit(route('reports.index'))
         ->assertNoSmoke();
 });
