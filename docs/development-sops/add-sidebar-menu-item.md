@@ -124,12 +124,31 @@ Use `flux:navlist.group` from `/resources/views/flux/navlist/group.blade.php` (s
 
 For each additional sub-item, repeat Step 1 and Step 2 to create a component and route.
 
-### Step 4: Icons
+### Step 4: Icons and Badges
 
+#### Icons
 This project uses Flux UI icons and custom Blade icon components under `/resources/views/flux/icon/`.
 
 - Use available icon names like `home`, `folder-git-2`, `book-open-text`, `layout-grid` via `icon="..."`.
 - To add a new icon, add a Blade component under `resources/views/flux/icon/` and reference it by its file name.
+
+#### Badges
+You can add badges to navlist items to show status or additional information (e.g., "Alpha", "Beta", "12" for counts).
+
+```blade
+<flux:navlist.item
+    icon="map"
+    :href="route('maps.index')"
+    :current="request()->routeIs('maps.index')"
+    badge="Alpha"
+    badge:color="lime"
+    wire:navigate
+>
+    {{ __('Maps') }}
+</flux:navlist.item>
+```
+
+Available badge colors: `lime` (green), `red`, `blue`, `yellow`, `gray`, etc. Use `badge:color` to set the color.
 
 ### Step 5: Tests (Required)
 
@@ -170,7 +189,20 @@ it('livewire component returns 200', function () {
 });
 ```
 
-### Step 6: Manual Checklist
+### Step 6: Run Full Test Suite
+
+After completing the implementation, run the full test suite to ensure nothing is broken:
+
+```bash
+composer test
+```
+
+This command runs:
+- All Pest tests
+- Laravel Pint code formatter validation
+- Larastan static analysis
+
+### Step 7: Manual Checklist
 
 - [ ] Route is registered within the authenticated middleware group
 - [ ] Livewire component exists under `app/Livewire/...`
@@ -179,7 +211,7 @@ it('livewire component returns 200', function () {
 - [ ] Sidebar item appears under the correct group
 - [ ] Active state highlights correctly (`:current` binding)
 - [ ] Icon renders correctly
-- [ ] Tests pass (`php artisan test`)
+- [ ] Tests pass (`composer test`)
 
 ## File Reference
 
