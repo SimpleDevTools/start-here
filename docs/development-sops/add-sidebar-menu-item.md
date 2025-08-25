@@ -154,6 +154,11 @@ Available badge colors: `lime` (green), `red`, `blue`, `yellow`, `gray`, etc. Us
 
 Create feature tests with Pest to verify routing, auth, and Livewire rendering.
 
+**IMPORTANT:** You MUST include ALL THREE test types:
+1. Guest redirect test
+2. Authenticated user test WITH `visit()->assertNoSmoke()`
+3. Livewire component status test
+
 Location: `/tests/Feature/Livewire/Reports/IndexTest.php`
 
 ```php
@@ -180,6 +185,7 @@ it('renders for authenticated users', function () {
         ->assertOk()
         ->assertSeeLivewire(ReportsIndex::class);
 
+    // CRITICAL: Always include visit test with assertNoSmoke()
     visit(route('reports.index'))
         ->assertNoSmoke();
 });
@@ -188,6 +194,8 @@ it('livewire component returns 200', function () {
     Livewire::test(ReportsIndex::class)->assertStatus(200);
 });
 ```
+
+⚠️ **DO NOT FORGET:** The `visit()->assertNoSmoke()` test is REQUIRED to ensure the page loads without JavaScript errors.
 
 ### Step 6: Run Full Test Suite
 
@@ -211,7 +219,8 @@ This command runs:
 - [ ] Sidebar item appears under the correct group
 - [ ] Active state highlights correctly (`:current` binding)
 - [ ] Icon renders correctly
-- [ ] Tests pass (`composer test`)
+- [ ] Tests include guest redirect, authenticated user, AND visit()->assertNoSmoke()
+- [ ] All tests pass (`composer test`)
 
 ## File Reference
 
