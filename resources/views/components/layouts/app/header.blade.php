@@ -52,30 +52,6 @@
                     :label="__('Search')"
                 />
             </flux:tooltip>
-            <flux:tooltip
-                :content="__('Repository')"
-                position="bottom"
-            >
-                <flux:navbar.item
-                    class="h-10 max-lg:hidden [&>div>svg]:size-5"
-                    href="https://github.com/laravel/livewire-starter-kit"
-                    icon="folder-git-2"
-                    target="_blank"
-                    :label="__('Repository')"
-                />
-            </flux:tooltip>
-            <flux:tooltip
-                :content="__('Documentation')"
-                position="bottom"
-            >
-                <flux:navbar.item
-                    class="h-10 max-lg:hidden [&>div>svg]:size-5"
-                    href="https://laravel.com/docs/starter-kits#livewire"
-                    icon="book-open-text"
-                    target="_blank"
-                    label="Documentation"
-                />
-            </flux:tooltip>
         </flux:navbar>
 
         <!-- Desktop User Menu -->
@@ -169,26 +145,6 @@
                     {{ __('Dashboard') }}
                 </flux:navlist.item>
             </flux:navlist.group>
-        </flux:navlist>
-
-        <flux:spacer />
-
-        <flux:navlist variant="outline">
-            <flux:navlist.item
-                href="https://github.com/laravel/livewire-starter-kit"
-                icon="folder-git-2"
-                target="_blank"
-            >
-                {{ __('Repository') }}
-            </flux:navlist.item>
-
-            <flux:navlist.item
-                href="https://laravel.com/docs/starter-kits#livewire"
-                icon="book-open-text"
-                target="_blank"
-            >
-                {{ __('Documentation') }}
-            </flux:navlist.item>
         </flux:navlist>
     </flux:sidebar>
 
