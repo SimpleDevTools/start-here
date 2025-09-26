@@ -47,10 +47,10 @@ jobs:
       - name: "run pint"
         run: php ./vendor/bin/pint --test
 
-      - name: "setup node v22.11.0"
+      - name: "setup node v22.20.0"
         uses: actions/setup-node@v3
         with:
-          node-version: 22.11.0
+          node-version: 22.20.0
           cache: "npm"
 
       - name: "install node dependencies"
