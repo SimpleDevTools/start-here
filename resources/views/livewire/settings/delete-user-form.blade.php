@@ -22,15 +22,22 @@
     >
         <form
             class="space-y-6"
+            method="POST"
             wire:submit="deleteUser"
         >
             <div>
                 <flux:heading size="lg">{{ __('Are you sure you want to delete your account?') }}</flux:heading>
 
                 <flux:subheading>
-                    {{ __('Once your account is deleted, all of its resources and data will also be permanently deleted. Please confirm you would like to permanently delete your account.') }}
+                    {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
                 </flux:subheading>
             </div>
+
+            <flux:input
+                type="password"
+                wire:model="password"
+                :label="__('Password')"
+            />
 
             <div class="flex justify-end space-x-2 rtl:space-x-reverse">
                 <flux:modal.close>

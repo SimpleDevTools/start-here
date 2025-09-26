@@ -10,26 +10,27 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "laravel/fortify": "^1.30",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "laravel/workos": "^0.1.0",
-        "livewire/flux": "^2.2",
-        "livewire/flux-pro": "^2.2",
+        "lendable/composer-license-checker": "^1.2",
+        "livewire/flux": "^2.4",
+        "livewire/flux-pro": "^2.4",
         "smpita/configas": "^1.2",
         "smpita/typeas": "^3.1",
         "spatie/laravel-activitylog": "^4.10"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
-        "larastan/larastan": "^3.0",
-        "laravel/boost": "^1.0",
+        "larastan/larastan": "^3.7",
+        "laravel/boost": "^1.2",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.18",
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "pestphp/pest": "^4.0",
-        "pestphp/pest-plugin-browser": "^4.0",
+        "pestphp/pest": "^4.1",
+        "pestphp/pest-plugin-browser": "^4.1",
         "pestphp/pest-plugin-laravel": "^4.0",
         "phpstan/extension-installer": "^1.4",
         "tomasvotruba/cognitive-complexity": "^1.0"
@@ -71,10 +72,12 @@
         ],
         "test": [
             "@php artisan config:clear --ansi",
+            "./vendor/bin/composer-license-checker",
             "./vendor/bin/phpstan analyze --xdebug",
             "./vendor/bin/pint --test",
             "./node_modules/.bin/blade-formatter \"./resources/**/*.blade.php\" -c -d",
-            "@php artisan test --parallel"
+            "@php artisan test --parallel",
+            "command -v herd >/dev/null 2>&1 && herd coverage ./vendor/bin/pest --parallel --coverage || php artisan test --parallel --coverage"
         ]
     },
     "extra": {

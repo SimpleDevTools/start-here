@@ -10,15 +10,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable
 {
     /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, LogsModelActivity, Notifiable;
+    use HasFactory, LogsModelActivity, Notifiable, TwoFactorAuthenticatable;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    protected $hidden = ['workos_id', 'remember_token'];
+    protected $hidden = ['remember_token'];
 
     public function initials(): string
     {

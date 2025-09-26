@@ -3,7 +3,7 @@
 
     <x-settings.layout
         :heading="__('Appearance')"
-        :subheading="__('Update your account\'s appearance settings')"
+        :subheading="__('Update the appearance settings for your account')"
     >
         <flux:radio.group
             x-data
