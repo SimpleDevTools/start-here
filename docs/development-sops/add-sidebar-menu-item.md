@@ -150,6 +150,39 @@ You can add badges to navlist items to show status or additional information (e.
 
 Available badge colors: `lime` (green), `red`, `blue`, `yellow`, `gray`, etc. Use `badge:color` to set the color.
 
+### Step 4.5: Configure Breadcrumbs (Page Layout)
+
+If your new page uses the page layout with breadcrumbs (`#[Layout('components.layouts.page')]`), ensure breadcrumb icons match the sidebar navigation:
+
+#### For Standalone Pages
+```blade
+<x-slot:breadcrumbs>
+    <flux:breadcrumbs.item>
+        <div class="flex items-center gap-2">
+            <flux:icon icon="layout-grid" />
+            {{ __('Reports') }}
+        </div>
+    </flux:breadcrumbs.item>
+</x-slot:breadcrumbs>
+```
+
+#### For Grouped Pages
+```blade
+<x-slot:breadcrumbs>
+    <flux:breadcrumbs.item>
+        <div class="flex items-center gap-2">
+            <flux:icon icon="chart-bar" />
+            {{ __('Analytics') }}
+        </div>
+    </flux:breadcrumbs.item>
+    <flux:breadcrumbs.item>{{ __('Reports') }}</flux:breadcrumbs.item>
+</x-slot:breadcrumbs>
+```
+
+**IMPORTANT**: The icon in breadcrumbs must match the icon used in the sidebar `flux:navlist.item` or `flux:navlist.group`.
+
+For detailed breadcrumbs documentation, see: [Create Livewire Page with Breadcrumbs](./create-livewire-page-with-breadcrumbs.md)
+
 ### Step 5: Tests (Required)
 
 Create feature tests with Pest to verify routing, auth, and Livewire rendering.
@@ -214,10 +247,12 @@ This command runs:
 - [ ] Route is registered within the authenticated middleware group
 - [ ] Livewire component exists under `app/Livewire/...`
 - [ ] Component view exists under `resources/views/livewire/...`
-- [ ] Component sets layout to `components.layouts.app`
+- [ ] Component sets layout (either `components.layouts.app` or `components.layouts.page`)
 - [ ] Sidebar item appears under the correct group
 - [ ] Active state highlights correctly (`:current` binding)
 - [ ] Icon renders correctly
+- [ ] If using page layout: Breadcrumbs configured with matching icons
+- [ ] If using page layout: All required slots defined (title, description, breadcrumbs)
 - [ ] Tests include guest redirect, authenticated user, AND visit()->assertNoSmoke()
 - [ ] All tests pass (`composer test`)
 
@@ -226,6 +261,7 @@ This command runs:
 | File | Purpose |
 |------|---------|
 | `/resources/views/components/layouts/app/sidebar.blade.php` | Sidebar UI and nav items |
+| `/resources/views/components/layouts/page.blade.php` | Page layout with breadcrumbs |
 | `/resources/views/flux/navlist/group.blade.php` | Grouping/collapsible behavior for nav sections |
 | `/routes/web.php` and `/routes/settings.php` | Route definitions |
 | `/app/Livewire/*` | Livewire component classes |

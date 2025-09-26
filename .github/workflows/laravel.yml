@@ -2,22 +2,51 @@ name: CI
 
 on:
   push:
-  pull_request:
 
+env:
+  DB_PORT: 5432
+  DB_USERNAME: postgres
+  DB_PASSWORD: postgres
 jobs:
   build:
     name: "Build and Test"
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgis/postgis:15-3.4
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: include_cloud_laravel_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: "checkout repository"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: "cache PHP setup"
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/setup-php-cache
+            ~/.composer/cache
+          key: ${{ runner.os }}-php-8.4-setup-${{ hashFiles('.github/workflows/laravel.yml') }}
+          restore-keys: ${{ runner.os }}-php-8.4-setup-
 
       - name: "setup PHP 8.4"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.4"
-          tools: composer
-          coverage: none
+          tools: composer:v2
+          coverage: xdebug
+        env:
+          SETUP_PHP_CACHE: true
 
       - name: "get composer cache directory"
         id: composer-cache
@@ -30,12 +59,16 @@ jobs:
               "composer.fluxui.dev": {
                 "username": "${{ secrets.FLUX_COMPOSER_USERNAME }}",
                 "password": "${{ secrets.FLUX_COMPOSER_PASSWORD }}"
+              },
+              "wire-elements-pro.composer.sh": {
+                "username": "${{ secrets.WIRE_ELEMENTS_COMPOSER_USERNAME }}",
+                "password": "${{ secrets.WIRE_ELEMENTS_COMPOSER_PASSWORD }}"
               }
             }
           }' > auth.json
 
       - name: "cache dependencies"
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -43,6 +76,9 @@ jobs:
 
       - name: "install dependencies"
         run: composer install --prefer-dist
+
+      - name: "run composer license checker"
+        run: ./vendor/bin/composer-license-checker
 
       - name: "run pint"
         run: php ./vendor/bin/pint --test
@@ -71,11 +107,20 @@ jobs:
       - name: "run artisan migrate"
         run: php artisan migrate
 
+      - name: "cache built assets"
+        uses: actions/cache@v4
+        with:
+          path: public/build
+          key: ${{ runner.os }}-build-${{ hashFiles('resources/**/*', 'package-lock.json', 'vite.config.js') }}
+          restore-keys: ${{ runner.os }}-build-
+
       - name: "build assets"
         run: npm run build
+      - name: "install playwright"
+        run: npx playwright install
 
-      - name: "run tests"
-        run: php artisan test
+      - name: "run tests with coverage enforcement"
+        run: ./vendor/bin/pest --parallel --coverage
 
       - name: "run artisan config:cache"
         run: php artisan config:cache

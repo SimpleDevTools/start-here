@@ -4,8 +4,12 @@ This directory contains documented procedures for common development tasks in th
 
 ## Available SOPs
 
+### Data Models
+- [Create Model](./create-eloquent-model.md) - Creating Eloquent models with migrations, factories, and tests
+
 ### UI/UX Components
 - [Add Sidebar Menu Item](./add-sidebar-menu-item.md) - Adding navigation items to the application sidebar
+- [Create Livewire Page with Breadcrumbs](./create-livewire-page-with-breadcrumbs.md) - Creating Livewire pages with breadcrumb navigation
 
 ## SOP Format
 
@@ -31,7 +35,9 @@ When creating a new SOP:
 
 | Task | SOP Document | Complexity |
 |------|--------------|------------|
+| Create new model | [create-eloquent-model.md](./create-eloquent-model.md) | Medium |
 | Add sidebar menu item | [add-sidebar-menu-item.md](./add-sidebar-menu-item.md) | Low |
+| Create page with breadcrumbs | [create-livewire-page-with-breadcrumbs.md](./create-livewire-page-with-breadcrumbs.md) | Medium |
 
 ## Maintenance
 
