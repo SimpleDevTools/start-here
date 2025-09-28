@@ -75,7 +75,7 @@
             "@php artisan config:clear --ansi",
             "./vendor/bin/composer-license-checker",
             "./vendor/bin/phpstan analyze --xdebug",
-            "./vendor/bin/pint --test",
+            "./vendor/bin/pint --test --parallel",
             "./node_modules/.bin/blade-formatter \"./resources/**/*.blade.php\" -c -d",
             "@php artisan test --parallel",
             "command -v herd >/dev/null 2>&1 && herd coverage ./vendor/bin/pest --parallel --coverage || php artisan test --parallel --coverage"
