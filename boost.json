@@ -11,5 +11,8 @@
         "cursor",
         "opencode"
     ],
-    "guidelines": []
+    "guidelines": [
+        "smpita/configas",
+        "smpita/typeas"
+    ]
 }
