@@ -5,9 +5,7 @@
     </div>
 
     <flux:modal.trigger name="confirm-user-deletion">
-        <flux:button
-            variant="danger"
-        >
+        <flux:button variant="danger">
             {{ __('Delete account') }}
         </flux:button>
     </flux:modal.trigger>
