@@ -181,8 +181,6 @@
 
     {{ $slot }}
 
-    @livewire('modal-pro')
-
     @fluxScripts
 </body>
 

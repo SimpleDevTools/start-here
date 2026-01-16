@@ -16,10 +16,10 @@
         "lendable/composer-license-checker": "^1.2",
         "livewire/flux": "^2.4",
         "livewire/flux-pro": "^2.4",
+        "livewire/livewire": "^4.0",
         "smpita/configas": "^2.0",
         "smpita/typeas": "^4.0",
-        "spatie/laravel-activitylog": "^4.10",
-        "wire-elements/pro": "^5.0"
+        "spatie/laravel-activitylog": "^4.10"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -110,10 +110,6 @@
         "flux-pro": {
             "type": "composer",
             "url": "https://composer.fluxui.dev"
-        },
-        "wire-elements/pro": {
-            "type": "composer",
-            "url": "https://wire-elements-pro.composer.sh"
         }
     }
 }

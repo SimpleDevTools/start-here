@@ -60,10 +60,6 @@ jobs:
               "composer.fluxui.dev": {
                 "username": "${{ secrets.FLUX_COMPOSER_USERNAME }}",
                 "password": "${{ secrets.FLUX_COMPOSER_PASSWORD }}"
-              },
-              "wire-elements-pro.composer.sh": {
-                "username": "${{ secrets.WIRE_ELEMENTS_COMPOSER_USERNAME }}",
-                "password": "${{ secrets.WIRE_ELEMENTS_COMPOSER_PASSWORD }}"
               }
             }
           }' > auth.json

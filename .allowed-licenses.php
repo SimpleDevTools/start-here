@@ -13,5 +13,4 @@ return (new LicenseConfigurationBuilder)
     )
     ->addAllowedPackage('livewire/flux')
     ->addAllowedPackage('livewire/flux-pro')
-    ->addAllowedPackage('wire-elements/pro')
     ->build();

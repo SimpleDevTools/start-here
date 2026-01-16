@@ -20,16 +20,16 @@ Route::view('dashboard', 'dashboard')
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
-    Route::get('settings/profile', Profile::class)->name('settings.profile');
-    Route::get('settings/password', Password::class)->name('settings.password');
-    Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
+    Route::livewire('settings/profile', Profile::class)->name('settings.profile');
+    Route::livewire('settings/password', Password::class)->name('settings.password');
+    Route::livewire('settings/appearance', Appearance::class)->name('settings.appearance');
 
     $middleware = [];
     if (Features::canManageTwoFactorAuthentication() && Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')) {
         $middleware[] = 'password.confirm';
     }
 
-    Route::get('settings/two-factor', TwoFactor::class)
+    Route::livewire('settings/two-factor', TwoFactor::class)
         ->middleware($middleware)
         ->name('two-factor.show');
 });
